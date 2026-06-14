@@ -1,0 +1,23 @@
+{
+  "name": "wechat-draft-assistant",
+  "version": "0.1.0",
+  "description": "微信公众号内容排版助手：从本地素材包自动检查、排版、美化并创建或更新微信公众号草稿。",
+  "author": {
+    "name": "GIS深度观察"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "微信公众号内容排版助手",
+    "shortDescription": "将文章素材包美化排版并写入微信公众号草稿箱。",
+    "longDescription": "微信公众号内容排版助手可以检查本地公众号素材包，优先使用增强版 HTML 模板，上传正文图片，创建或更新微信公众号草稿。插件只处理草稿，不发布、不群发。",
+    "developerName": "GIS深度观察",
+    "category": "Productivity",
+    "capabilities": [
+      "检查微信公众号文章素材包",
+      "优先使用增强排版模板",
+      "上传微信公众号正文图片",
+      "只创建或更新草稿，不发布"
+    ],
+    "defaultPrompt": "帮我把这个公众号素材包美化排版，并写入微信公众号草稿箱，只创建草稿，不要发布。"
+  }
+}
