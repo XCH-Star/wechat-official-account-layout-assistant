@@ -1,23 +1,23 @@
 {
   "name": "wechat-draft-assistant",
-  "version": "0.1.0",
-  "description": "微信公众号内容排版助手：从本地素材包自动检查、排版、美化并创建或更新微信公众号草稿。",
+  "version": "0.1.0+codex.20260614142101",
+  "description": "\u5fae\u4fe1\u516c\u4f17\u53f7\u5185\u5bb9\u6392\u7248\u52a9\u624b\uff1a\u4ece\u672c\u5730\u7d20\u6750\u5305\u81ea\u52a8\u68c0\u67e5\u3001\u6392\u7248\u3001\u7f8e\u5316\u5e76\u521b\u5efa\u6216\u66f4\u65b0\u5fae\u4fe1\u516c\u4f17\u53f7\u8349\u7a3f\u3002",
   "author": {
-    "name": "GIS深度观察"
+    "name": "GIS\u6df1\u5ea6\u89c2\u5bdf"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "微信公众号内容排版助手",
-    "shortDescription": "将文章素材包美化排版并写入微信公众号草稿箱。",
-    "longDescription": "微信公众号内容排版助手可以检查本地公众号素材包，优先使用增强版 HTML 模板，上传正文图片，创建或更新微信公众号草稿。插件只处理草稿，不发布、不群发。",
-    "developerName": "GIS深度观察",
+    "displayName": "\u5fae\u4fe1\u516c\u4f17\u53f7\u5185\u5bb9\u6392\u7248\u52a9\u624b",
+    "shortDescription": "\u5c06\u6587\u7ae0\u7d20\u6750\u5305\u7f8e\u5316\u6392\u7248\u5e76\u5199\u5165\u5fae\u4fe1\u516c\u4f17\u53f7\u8349\u7a3f\u7bb1\u3002",
+    "longDescription": "\u5fae\u4fe1\u516c\u4f17\u53f7\u5185\u5bb9\u6392\u7248\u52a9\u624b\u53ef\u4ee5\u68c0\u67e5\u672c\u5730\u516c\u4f17\u53f7\u7d20\u6750\u5305\uff0c\u4f18\u5148\u4f7f\u7528\u589e\u5f3a\u7248 HTML \u6a21\u677f\uff0c\u4e0a\u4f20\u6b63\u6587\u56fe\u7247\uff0c\u521b\u5efa\u6216\u66f4\u65b0\u5fae\u4fe1\u516c\u4f17\u53f7\u8349\u7a3f\u3002\u63d2\u4ef6\u53ea\u5904\u7406\u8349\u7a3f\uff0c\u4e0d\u53d1\u5e03\u3001\u4e0d\u7fa4\u53d1\u3002",
+    "developerName": "GIS\u6df1\u5ea6\u89c2\u5bdf",
     "category": "Productivity",
     "capabilities": [
-      "检查微信公众号文章素材包",
-      "优先使用增强排版模板",
-      "上传微信公众号正文图片",
-      "只创建或更新草稿，不发布"
+      "\u68c0\u67e5\u5fae\u4fe1\u516c\u4f17\u53f7\u6587\u7ae0\u7d20\u6750\u5305",
+      "\u4f18\u5148\u4f7f\u7528\u589e\u5f3a\u6392\u7248\u6a21\u677f",
+      "\u4e0a\u4f20\u5fae\u4fe1\u516c\u4f17\u53f7\u6b63\u6587\u56fe\u7247",
+      "\u53ea\u521b\u5efa\u6216\u66f4\u65b0\u8349\u7a3f\uff0c\u4e0d\u53d1\u5e03"
     ],
-    "defaultPrompt": "帮我把这个公众号素材包美化排版，并写入微信公众号草稿箱，只创建草稿，不要发布。"
+    "defaultPrompt": "\u5e2e\u6211\u628a\u8fd9\u4e2a\u516c\u4f17\u53f7\u7d20\u6750\u5305\u7f8e\u5316\u6392\u7248\uff0c\u5e76\u5199\u5165\u5fae\u4fe1\u516c\u4f17\u53f7\u8349\u7a3f\u7bb1\uff0c\u53ea\u521b\u5efa\u8349\u7a3f\uff0c\u4e0d\u8981\u53d1\u5e03\u3002"
   }
 }
