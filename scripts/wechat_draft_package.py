@@ -12,6 +12,13 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from wechat_beautify import (
+    AUTO_TEMPLATE_NAME,
+    ENHANCED_TEMPLATE_NAME,
+    beautify_wechat_html,
+    resolve_preferred_template_path,
+)
+
 
 TOKEN_API = "https://api.weixin.qq.com/cgi-bin/token"
 UPLOAD_IMG_API = "https://api.weixin.qq.com/cgi-bin/media/uploadimg"
@@ -20,7 +27,6 @@ ADD_DRAFT_API = "https://api.weixin.qq.com/cgi-bin/draft/add"
 DRAFT_GET_API = "https://api.weixin.qq.com/cgi-bin/draft/get"
 DRAFT_UPDATE_API = "https://api.weixin.qq.com/cgi-bin/draft/update"
 
-ENHANCED_TEMPLATE_NAME = "wechat_article_template_enhanced.html"
 DEFAULT_TEMPLATE_NAME = "wechat_article_template.html"
 
 ERRCODE_HINTS = {
@@ -200,8 +206,8 @@ def draft_flag(config: dict[str, Any], key: str, default: int = 0) -> int:
 def read_package(package_dir: Path, template_name: str | None) -> dict[str, Any]:
     package_dir = package_dir.resolve()
     config = json.loads(require_file(package_dir / "article_config.json").read_text(encoding="utf-8"))
-    template_path = resolve_template_path(package_dir, template_name)
     content_images = normalize_content_images(config)
+    template_path = resolve_preferred_template_path(package_dir, template_name, config, content_images)
     cover_file = resolve_cover_file(config, content_images)
 
     image_files = [package_dir / item["file"] for item in content_images]
@@ -257,7 +263,7 @@ def upload_inline_images(access_token: str, package: dict[str, Any]) -> tuple[st
     for placeholder in [item["placeholder"] for item in content_images]:
         if placeholder in html:
             raise RuntimeError(f"Image placeholder was not replaced: {placeholder}")
-    return wechat_safe_html(html), uploaded_urls
+    return beautify_wechat_html(wechat_safe_html(html)), uploaded_urls
 
 
 def upload_cover_material(access_token: str, package: dict[str, Any]) -> str:
@@ -347,6 +353,7 @@ def check_package(args: argparse.Namespace) -> dict[str, Any]:
         "title": package["config"].get("title"),
         "template": package["template_path"].name,
         "uses_enhanced_template": package["template_path"].name == ENHANCED_TEMPLATE_NAME,
+        "uses_auto_enhanced_template": package["template_path"].name == AUTO_TEMPLATE_NAME,
         "cover_file": package["cover_file"],
         "image_count": len(package["image_files"]),
         "images": [
